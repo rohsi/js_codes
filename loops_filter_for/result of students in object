@@ -97,17 +97,19 @@ var q2 = [
 var q2=[];
 for(var i=0;i<students.length;i++){
     var student=students[i];
-    var resultofStudent=[];
+
     var sum=0;
+    var count=0;
     for(var j=0;j<results.length;j++){
         var result=results[j];
 
         if(student.rollNo===result.rollNo){
-            resultofStudent.push(result);
+
             sum+=result.marks;
+            count++;
         }
     }
-    var percentage=sum/resultofStudent.length;
+    var percentage=sum/count;
     var sportplayedbystudent=[];
     for(var z=0;z<sports.length;z++){
         var sport=sports[z];
