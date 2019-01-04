@@ -21,7 +21,8 @@ var results = [
         rollNo: 1,
         marks: 37,
         subject: 'Maths'
-    }, {
+    },
+    {
         rollNo: 1,
         marks: 47,
         subject: 'English'
@@ -110,10 +111,13 @@ for(var i=0;i<students.length;i++){
         }
     }
     var percentage=sum/count;
+
+
     var sportplayedbystudent=[];
     for(var z=0;z<sports.length;z++){
         var sport=sports[z];
         if(student.rollNo===sport.studentId){
+            //we are storing relevant information
             sportplayedbystudent.push(sport);
 
         }
