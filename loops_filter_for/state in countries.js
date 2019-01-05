@@ -120,24 +120,20 @@ var q2= [
 
 
 var q2=[];
-
-
 for (var i=0;i<states.length;i++){
     var state=states[i];
-
-    var statescountry=[];
-    for(var j=0;j<countries.length;j++) {
-
-        var country = countries[j];
-        if (state.countryId === country.id) {
-            statescountry.push(country);
+    var s=null;
+    for (var j=0;j<countries.length;j++){
+        var country=countries[j];
+        if(country.id===state.countryId){
+            s=country;
         }
     }
-
     q2.push({
         id:state.id,
-        countryName:statescountry[0].name,
-        state:state.state
+        countryName:s.name,
+        states:state.state
     })
 }
+
 console.log(q2);
