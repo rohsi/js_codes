@@ -92,12 +92,9 @@ for (var i = 0; i < people.length; i++) {
         var onelibrary = library[z];
 
         if (person.libraryId === onelibrary.id) {
-            personinlibrary=onelibrary;
+            personinlibrary = onelibrary;
         }
     }
-
-
-
 
 
     var booksforperson = [];
@@ -113,9 +110,7 @@ for (var i = 0; i < people.length; i++) {
     // First way to handle null personinlibrary
 
 
-
-
-    if(personinlibrary == null ){
+    if (personinlibrary == null) {
 
         q1.push({
             name: person.name,
@@ -123,7 +118,7 @@ for (var i = 0; i < people.length; i++) {
             books: booksforperson
         })
 
-    }else{
+    } else {
 
         q1.push({
             name: person.name,
@@ -133,36 +128,33 @@ for (var i = 0; i < people.length; i++) {
     }
 
 
-
-
     // Second way to handle null personinlibrary
 
 
     var nameOfLibrary = null;
-    if(personinlibrary != null){
+    if (personinlibrary != null) {
         nameOfLibrary = personinlibrary.name
     }
 
 
     q1.push({
-                name: person.name,
-                library: nameOfLibrary,
-                books: booksforperson
-            })
+        name: person.name,
+        library: nameOfLibrary,
+        books: booksforperson
+    })
 
 
     // Third way to handle null personinlibrary
 
     q1.push({
-                    name: person.name,
-                    library: personinlibrary == null ? null : personinlibrary.name,
-                    books: booksforperson
-                })
+        name: person.name,
+        library: personinlibrary == null ? null : personinlibrary.name,
+        books: booksforperson
+    })
 
 }
 
 console.log(JSON.stringify(q1, null, 4));
-
 
 
 /*
@@ -200,31 +192,32 @@ for people-> person
 
  */
 
-for(var i=0;i<people.length;i++){
-    var person=people[i];
+for (var i = 0; i < people.length; i++) {
+    var person = people[i];
 
 
+    var libraryname = null;
+    var booksinthatlibrary = [];
 
-    var libraryname=null;
-    var booksinthatlibrary=[];
-
-    for (var j=0;j<library.length;j++){
-        var onelibrary=library[j];
-        if(person.libraryId===onelibrary.id){
-            libraryname=onelibrary;
+    for (var j = 0; j < library.length; j++) {
+        var onelibrary = library[j];
+        if (person.libraryId === onelibrary.id) {
+            libraryname = onelibrary;
         }
-        for (z=0;z<books.length;z++){
-            var book=books[z];
-            if(person.libraryId===book.libraryId){
+        for (z = 0; z < books.length; z++) {
+            var book = books[z];
+            if (person.libraryId === book.libraryId) {
                 booksinthatlibrary.push(book);
             }
         }
-    }q1.push({
+    }
 
-            name:person.name,
-        library:libraryname== null ? null : libraryname.name,
-        books:booksinthatlibrary
-})
+    q1.push({
+
+        name: person.name,
+        library: libraryname == null ? null : libraryname.name,
+        books: booksinthatlibrary
+    })
 
 }
 console.log(q1);
